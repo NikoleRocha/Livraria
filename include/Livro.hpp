@@ -16,7 +16,9 @@ class Livro{
     public:
         Livro(string _tituloLivro, string _autorLivro, string _generoLivro, float _precoVenda, int _codigoLivro, int _quantidadeLivro, float _precoCusto);
         void exibirLivro();
-        bool buscaLivroTitulo(string _tituloLivro);
+        void buscarInformacoesLivro(string _tituloLivro);
+        void filtroCategoria(string _categoria);
+        void filtroAutor(string _autor);
     
 };
 

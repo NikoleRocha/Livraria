@@ -19,10 +19,27 @@ void Livro::exibirLivro(){
     cout<<"Quantidade disponível: "<<quantidadeLivro<<endl;
 }
 
-bool Livro::buscaLivroTitulo(string _tituloLivro){
+void Livro::buscarInformacoesLivro(string _tituloLivro){
     if(this->tituloLivro==_tituloLivro){
-        return 1;
+       cout<<"Preço: R$"<<precoVenda<<endl;
+        cout<<"Quantidade disponível: "<<quantidadeLivro<<endl;
     }else{
-        return 0;
+         cout<<"Livro Indisponível no momento" << endl;
+    }
+}
+
+void Livro::filtroCategoria(string _categoria){
+    if(this->generoLivro==_categoria){
+      this->exibirLivro();
+    }else{
+         cout<<"Categoria não encontrada" << endl;
+    }
+}
+
+void Livro::filtroAutor(string _autor){
+    if(this->autorLivro==_autor){
+      this->exibirLivro();
+    }else{
+         cout<<"Autor não encontrado" << endl;
     }
 }

@@ -43,3 +43,13 @@ void Livro::filtroAutor(string _autor){
          cout<<"Autor não encontrado" << endl;
     }
 }
+
+double Livro::getPrecoVenda()
+        {
+       
+            return precoVenda;
+        }
+
+string Livro::getTituloLivro(){
+return tituloLivro;
+}

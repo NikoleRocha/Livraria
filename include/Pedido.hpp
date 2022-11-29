@@ -11,6 +11,7 @@ class Pedido : public Livro{
     std::vector<Livro> _livrosSalvos;
     float _valorTotalCompra;
     public:
+        Pedido(std::vector<Livro> &_livrosSalvos,float _valorTotalCompra);
         void removerLivro(string tituloLivro);
         void adicionarLivro(Livro &livro);
         float calcularValorCompra();

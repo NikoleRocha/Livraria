@@ -36,11 +36,19 @@ void Livro::filtroCategoria(string _categoria){
     }
 }
 
-void Livro::filtroAutor(string _autor){
-    if(this->autorLivro==_autor){
+void Livro::filtroCodigo(int _codigo){
+    if(this->codigoLivro==_codigo){
       this->exibirLivro();
     }else{
-         cout<<"Autor não encontrado" << endl;
+         cout<<"Livro não identificado" << endl;
+    }
+}
+
+void Livro::filtroTitulo(string _titulo){
+    if(this->tituloLivro==_titulo){
+      this->exibirLivro();
+    }else{
+         cout<<"Título não encontrado" << endl;
     }
 }
 

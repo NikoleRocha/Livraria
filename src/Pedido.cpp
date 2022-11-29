@@ -2,6 +2,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+Pedido::Pedido(std::vector<Livro> &_livrosSalvos,float valorTotalCompra){
+    this->_valorTotalCompra=valorTotalCompra;
+    for (vector<Livro>::iterator it = _livrosSalvos.begin();
+it != _livrosSalvos.end(); it++) {
+    _livrosSalvos.push_back(*it);
+}
+}
+
 void Pedido::removerLivro(string tituloLivro){
     int auxIndex = 0;
  for (vector<Livro>::iterator it = _livrosSalvos.begin();

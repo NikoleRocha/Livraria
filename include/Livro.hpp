@@ -18,7 +18,8 @@ class Livro{
         void exibirLivro();
         void buscarInformacoesLivro(string _tituloLivro);
         void filtroCategoria(string _categoria);
-        void filtroAutor(string _autor);
+        void filtroTitulo(string _titulo);
+        void filtroCodigo(int _codigo);
         double getPrecoVenda();
         string getTituloLivro();
        

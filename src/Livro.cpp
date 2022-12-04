@@ -1,4 +1,5 @@
 #include "Livro.hpp"
+#include "ExcecoesLivro.hpp"
 
 Livro::Livro(string _tituloLivro, string _autorLivro, string _generoLivro, float _precoVenda, int _codigoLivro, int _quantidadeLivro, float _precoCusto){
     this->tituloLivro=_tituloLivro;
@@ -8,6 +9,45 @@ Livro::Livro(string _tituloLivro, string _autorLivro, string _generoLivro, float
     this->codigoLivro=_codigoLivro;
     this->quantidadeLivro=_quantidadeLivro;
     this->precoCusto=_precoCusto;
+    
+        if (this->tituloLivro.empty())
+    {
+        throw TituloInvalido();
+    }
+    else if (this->codigoLivro<0)
+    {
+        throw CodigoInvalido();
+    }
+    else if (this->autorLivro.empty())
+    {
+        throw AutorInvalido();
+    }
+    else if (this->generoLivro.empty())
+    {
+        throw GeneroInvalido();
+    }
+    else if (this->precoVenda<0)
+    {
+        throw CustoInvalido();
+    }
+    else if (this->precoCusto<0)
+    {
+        throw PrecoInvalido();
+    }
+     else if (this->quantidadeLivro<0)
+    {
+        throw QuantidadeInvalida();
+    }
+}
+
+Livro::Livro(){
+    this->tituloLivro="Indefinido";
+    this->autorLivro="Indefinido";
+    this->generoLivro="Indefinido";
+    this->precoVenda=0;
+    this->codigoLivro=0;
+    this->quantidadeLivro=0;
+    this->precoCusto=0;
 }
 
 void Livro::exibirLivro(){
@@ -59,5 +99,9 @@ double Livro::getPrecoVenda()
         }
 
 string Livro::getTituloLivro(){
-return tituloLivro;
+return this->tituloLivro;
+}
+
+int Livro::getCodigoLivro(){
+return this->codigoLivro;
 }

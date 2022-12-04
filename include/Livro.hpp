@@ -15,6 +15,7 @@ class Livro{
         double precoVenda;
     public:
         Livro(string _tituloLivro, string _autorLivro, string _generoLivro, float _precoVenda, int _codigoLivro, int _quantidadeLivro, float _precoCusto);
+        Livro();
         void exibirLivro();
         void buscarInformacoesLivro(string _tituloLivro);
         void filtroCategoria(string _categoria);
@@ -22,6 +23,7 @@ class Livro{
         void filtroCodigo(int _codigo);
         double getPrecoVenda();
         string getTituloLivro();
+        int getCodigoLivro();
        
     
 };

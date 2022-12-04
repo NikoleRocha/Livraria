@@ -1,73 +1,63 @@
 #include "Pedido.hpp"
+#include "Livro.hpp"
+#include "ExcecoesPedido.hpp"
 #include <bits/stdc++.h>
 using namespace std;
 
-Pedido::Pedido(std::vector<Livro> &_livrosSalvos,float valorTotalCompra){
-    this->_valorTotalCompra=valorTotalCompra;
-    for (vector<Livro>::iterator it = _livrosSalvos.begin();
-it != _livrosSalvos.end(); it++) {
-    _livrosSalvos.push_back(*it);
+Pedido::Pedido(std::vector<Livro> _livrosSalvos):
+_livrosSalvos(_livrosSalvos){
+   
 }
-}
-
-void Pedido::removerLivro(string tituloLivro){
-    int auxIndex = 0;
- for (vector<Livro>::iterator it = _livrosSalvos.begin();
-it != _livrosSalvos.end(); it++) {
-if(it->getTituloLivro() == tituloLivro){
-    auxIndex = getIndex(_livrosSalvos, *it);
-}
-}
-if(auxIndex!=-1){
-_livrosSalvos.erase(_livrosSalvos.begin()+ auxIndex);
-}else{
-    cout<<"O livro não consta na sua lista de pedidos"<<endl;
-} 
-
+Pedido::Pedido():
+_livrosSalvos(_livrosSalvos){
+   
 }
 
 void Pedido::adicionarLivro(Livro &livro){
      if (this->_livrosSalvos.empty())
     {
         this->_livrosSalvos.push_back(livro);
-        return;
     }
     this->_livrosSalvos.push_back(livro);
 }
 
 float Pedido::calcularValorCompra(){
+    if (this->_livrosSalvos.empty())
+    {
+        throw NenhumLivroAdicionado();
+    }
+    double valorTotalCompra;
     for (vector<Livro>::iterator it = _livrosSalvos.begin();
 it != _livrosSalvos.end(); it++) {
-_valorTotalCompra += it->getPrecoVenda();
+valorTotalCompra += it->getPrecoVenda();
+
 }
+return valorTotalCompra;
 }
 
 void Pedido::gerarBoleto(Pedido* pedido){
+    if (this->_livrosSalvos.empty())
+    {
+        throw NenhumLivroAdicionado();
+    }
     for (vector<Livro>::iterator it = pedido->_livrosSalvos.begin();
 it != pedido->_livrosSalvos.end(); it++) {
  cout<<"Título: "<<it->getTituloLivro()<<endl;
     cout<<"Preço: R$"<<it->getPrecoVenda()<<endl;
 }
    
-    cout<<"Valor total da compra: R$"<<_valorTotalCompra<<endl;
+    cout<<"Valor total da compra: R$"<<pedido->calcularValorCompra()<<endl;
 
 }
 
-int Pedido::getIndex(vector<Livro> livros, Livro livroBuscado){
-    auto it = find(livros.begin(), livros.end(), livroBuscado);
-  
-    // If element was found
-    if (it != livros.end()) 
-    {
-      
-        // calculating the index
-        // of K
-        int index = it - livros.begin();
-        return index;
-    }
-    else {
-        // If the element is not
-        // present in the vector
-        return -1;
-    }
+void Pedido::removerLivro(int codigo){
+ for (vector<Livro>::iterator it = _livrosSalvos.begin();
+it != _livrosSalvos.end(); it++) {
+    cout<< it->getCodigoLivro() << endl;
+if(it->getCodigoLivro() == codigo){
+    _livrosSalvos.erase(it);
+}else{
+    cout<<"Este código não consta na sua lista de pedidos"<<endl;
+} 
+}
 }

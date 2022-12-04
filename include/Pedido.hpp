@@ -9,14 +9,13 @@
 
 class Pedido : public Livro{
     std::vector<Livro> _livrosSalvos;
-    float _valorTotalCompra;
     public:
-        Pedido(std::vector<Livro> &_livrosSalvos,float _valorTotalCompra);
-        void removerLivro(string tituloLivro);
+        Pedido(std::vector<Livro> _livrosSalvos);
+        Pedido();
+        void removerLivro(int codigo);
         void adicionarLivro(Livro &livro);
         float calcularValorCompra();
         void gerarBoleto(Pedido* pedido);
-        int getIndex(vector<Livro> livros, Livro livroBuscado);
 
 };
 

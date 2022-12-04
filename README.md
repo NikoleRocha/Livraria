@@ -1,14 +1,14 @@
-### **🗄️ E-commerce de Livros**
+### **📚 E-commerce de Livros**
 
 📝 **Descrição**
 
 O projeto consiste no desenvolvimento de um sistema de gestão acadêmica, em que os usuários (aluno, professores e administradores) terão acesso a diversas funcionalidades necessárias para manter e gerenciar de maneira adequada a vida acadêmica.
 
-📚 **Usuários**
+👨‍👩‍👧‍👧 **Usuários**
 
-**Alunos:** Os alunos poderão trancar a matrícula, consultar notas e disciplinas.
+**Clientes:** Os clientes podem consultar o catálogo, realizar um pedido, gerar boletos...
 
-**Administradores:** Podem adicionar novos alunos, professores e outros administradores.
+**Administradores:** Podem adicionar novos livros no catálogo, gerar relatórios...
 
 🔧 **Tecnologias utilizadas**
 
@@ -92,6 +92,7 @@ Um dos principais objetivos desse trabalho é desenvolver além de um sistema fu
   * **Modularização:** A modularização do código é de extrema importância para a manutenção e extensão do código. Dividimos em arquivos .hpp (contratos) e arquivos .cpp (implementação). Assim, adicionar ou excluir um método ou atributo torna-se uma tarefa simples.
   * **Alta coesão e Baixo Acoplamento:** Durante o desenvolvimento do código, visamos produzir um sistema com alta coesão, ou seja, classes em que seus membros são fortemente ligados e buscam um objetivo comum, e também um baixo acoplamento, ou seja, classes com baixa dependência entre si. Classes coesas e pouco acopladas facilitam a manutenção e evitam os efeitos colaterais.
   * **Composição:** A composição é uma relação entre classes que pode ser descrita como **tem um**, por exemplo, uma sala **tem um** horário, ou aluno **tem uma** nota. Essa forma de organização permite o agrupamento lógico de classes.
+  * **Herança:** A herança permite que classes compartilhem atributos e métodos, através de "heranças". Ela é usada na intenção de reaproveitar código ou comportamento generalizado ou especializar operações ou atributos.
 <!--te-->
 
 

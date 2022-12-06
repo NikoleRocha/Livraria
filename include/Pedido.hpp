@@ -8,15 +8,15 @@
 #include "Livro.hpp"
 
 class Pedido : public Livro{
-    std::vector<Livro> _livrosSalvos;
     public:
-        Pedido(std::vector<Livro> _livrosSalvos);
-        Pedido();
-        void removerLivro(int codigo);
-        void adicionarLivro(Livro &livro);
-        float calcularValorCompra();
-        void gerarBoleto(Pedido* pedido);
+    std::vector<Livro> _livrosSalvos;
+    void removerLivro(int codigo);
+    void adicionarLivro(Livro &livro);
+    float calcularValorCompra();
+    float calcularLucroCompra();
+    void gerarBoleto(Pedido* pedido);
 
 };
 
 #endif
+

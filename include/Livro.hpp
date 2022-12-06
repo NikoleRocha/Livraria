@@ -22,11 +22,11 @@ class Livro{
         void filtroTitulo(string _titulo);
         void filtroCodigo(int _codigo);
         double getPrecoVenda();
+        double getPrecoCusto();
         string getTituloLivro();
         int getCodigoLivro();
-       
-    
+        int getQuantidadeLivro();
+        void setQuantidadeLivro(int _quantidade);
 };
-
 
 #endif

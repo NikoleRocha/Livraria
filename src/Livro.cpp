@@ -69,27 +69,18 @@ void Livro::buscarInformacoesLivro(string _tituloLivro){
 }
 
 void Livro::filtroCategoria(string _categoria){
-    if(this->generoLivro==_categoria){
+    if(this->generoLivro==_categoria)
       this->exibirLivro();
-    }else{
-         cout<<"Categoria não encontrada" << endl;
-    }
 }
 
 void Livro::filtroCodigo(int _codigo){
-    if(this->codigoLivro==_codigo){
+    if(this->codigoLivro==_codigo)
       this->exibirLivro();
-    }else{
-         cout<<"Livro não identificado" << endl;
-    }
 }
 
 void Livro::filtroTitulo(string _titulo){
-    if(this->tituloLivro==_titulo){
+    if(this->tituloLivro==_titulo)
       this->exibirLivro();
-    }else{
-         cout<<"Título não encontrado" << endl;
-    }
 }
 
 double Livro::getPrecoVenda()
@@ -104,4 +95,13 @@ return this->tituloLivro;
 
 int Livro::getCodigoLivro(){
 return this->codigoLivro;
+}
+int Livro::getQuantidadeLivro(){
+    return this->quantidadeLivro;
+}
+void Livro::setQuantidadeLivro(int _quantidade){
+    this->quantidadeLivro = _quantidade;
+}
+double Livro::getPrecoCusto(){
+    return this->precoCusto;
 }

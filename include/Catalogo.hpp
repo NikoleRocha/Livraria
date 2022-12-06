@@ -8,8 +8,8 @@
 #include "Livro.hpp"
 
 class Catalogo : public Livro{
-    std::vector<Livro> livrosEstoque;
     public:
+    std::vector<Livro> livrosEstoque;
     void imprimirLivrosEstoque();
     void filtroCategoria(string categoriaBuscada);
     void filtroTitulo(string tituloBuscado);

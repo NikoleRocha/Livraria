@@ -4,20 +4,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-Pedido::Pedido(std::vector<Livro> _livrosSalvos):
-_livrosSalvos(_livrosSalvos){
-   
-}
-Pedido::Pedido():
-_livrosSalvos(_livrosSalvos){
-   
-}
 
 void Pedido::adicionarLivro(Livro &livro){
-     if (this->_livrosSalvos.empty())
-    {
-        this->_livrosSalvos.push_back(livro);
-    }
     this->_livrosSalvos.push_back(livro);
 }
 
@@ -33,6 +21,20 @@ valorTotalCompra += it->getPrecoVenda();
 
 }
 return valorTotalCompra;
+}
+float Pedido::calcularLucroCompra(){
+    if (this->_livrosSalvos.empty())
+    {
+        throw NenhumLivroAdicionado();
+    }
+    double lucroCompra;
+    double precoCompra;
+    for (vector<Livro>::iterator it = _livrosSalvos.begin();
+    it != _livrosSalvos.end(); it++) {
+        precoCompra += it->getPrecoCusto();
+    }
+    lucroCompra = this->calcularValorCompra() - precoCompra;
+    return lucroCompra;
 }
 
 void Pedido::gerarBoleto(Pedido* pedido){
@@ -53,11 +55,12 @@ it != pedido->_livrosSalvos.end(); it++) {
 void Pedido::removerLivro(int codigo){
  for (vector<Livro>::iterator it = _livrosSalvos.begin();
 it != _livrosSalvos.end(); it++) {
-    cout<< it->getCodigoLivro() << endl;
 if(it->getCodigoLivro() == codigo){
-    _livrosSalvos.erase(it);
+    this->_livrosSalvos.erase(it);
+    break;
 }else{
     cout<<"Este código não consta na sua lista de pedidos"<<endl;
 } 
 }
 }
+

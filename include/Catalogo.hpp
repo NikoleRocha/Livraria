@@ -7,14 +7,14 @@
 
 #include "Livro.hpp"
 
-class Catalogo : public Livro{
-    public:
+class Catalogo : public Livro
+{
+public:
     std::vector<Livro> livrosEstoque;
     void imprimirLivrosEstoque();
     void filtroCategoria(string categoriaBuscada);
     void filtroTitulo(string tituloBuscado);
     void filtroCodigo(int codigoBuscado);
-
 };
 
 #endif

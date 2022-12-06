@@ -5,8 +5,8 @@
 
 class ExcecoesLivro : public std::exception
 {
-  public:
-    virtual const char *what() const throw() = 0;
+public:
+  virtual const char *what() const throw() = 0;
 };
 
 class TituloInvalido : public ExcecoesLivro

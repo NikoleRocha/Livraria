@@ -7,16 +7,15 @@
 
 #include "Livro.hpp"
 
-class Pedido : public Livro{
-    public:
+class Pedido : public Livro
+{
+public:
     std::vector<Livro> _livrosSalvos;
     void removerLivro(int codigo);
     void adicionarLivro(Livro &livro);
     float calcularValorCompra();
     float calcularLucroCompra();
-    void gerarBoleto(Pedido* pedido);
-
+    void gerarBoleto(Pedido *pedido);
 };
 
 #endif
-

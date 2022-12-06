@@ -1,29 +1,37 @@
 #include "Catalogo.hpp"
 
-void Catalogo::imprimirLivrosEstoque(){
-     for (vector<Livro>::iterator it = livrosEstoque.begin();
-it != livrosEstoque.end(); it++) {
-    it->exibirLivro();
-}
+void Catalogo::imprimirLivrosEstoque()
+{
+    for (vector<Livro>::iterator it = livrosEstoque.begin();
+         it != livrosEstoque.end(); it++)
+    {
+        it->exibirLivro();
+    }
 }
 
-void Catalogo::filtroCategoria(string categoriaBuscada){
+void Catalogo::filtroCategoria(string categoriaBuscada)
+{
     for (vector<Livro>::iterator it = livrosEstoque.begin();
-it != livrosEstoque.end(); it++) {
-    it->filtroCategoria(categoriaBuscada);
+         it != livrosEstoque.end(); it++)
+    {
+        it->filtroCategoria(categoriaBuscada);
+    }
 }
-} 
 
-void Catalogo::filtroTitulo(string tituloBuscado){
+void Catalogo::filtroTitulo(string tituloBuscado)
+{
     for (vector<Livro>::iterator it = livrosEstoque.begin();
-it != livrosEstoque.end(); it++) {
-    it->filtroTitulo(tituloBuscado);
+         it != livrosEstoque.end(); it++)
+    {
+        it->filtroTitulo(tituloBuscado);
+    }
 }
-} 
 
-void Catalogo::filtroCodigo(int codigoBuscado){
+void Catalogo::filtroCodigo(int codigoBuscado)
+{
     for (vector<Livro>::iterator it = livrosEstoque.begin();
-it != livrosEstoque.end(); it++) {
-    it->filtroCodigo(codigoBuscado);
-} 
+         it != livrosEstoque.end(); it++)
+    {
+        it->filtroCodigo(codigoBuscado);
+    }
 }

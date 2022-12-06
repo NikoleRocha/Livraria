@@ -6,10 +6,11 @@
 #include "Cliente.hpp"
 #include "Catalogo.hpp"
 
-class Administrador : public Usuario{
-    public:
-    Administrador(std::string _nome, std::string _cpf, std::string _login, 
-    std::string _telefone, std::string _senha);
+class Administrador : public Usuario
+{
+public:
+    Administrador(std::string _nome, std::string _cpf, std::string _login,
+                  std::string _telefone, std::string _senha);
     Administrador();
     std::vector<Cliente> clientes;
     void adicionarLivroCatalogo();
@@ -19,8 +20,6 @@ class Administrador : public Usuario{
     void relatorioCompleto();
     void cadastrarCliente();
     Cliente loginCliente();
-
 };
 
 #endif
-

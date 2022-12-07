@@ -57,7 +57,7 @@ void Cliente::adicionarPedido()
     {
         std::cout << "Digite o código do livro a ser adicionado no carrinho: " << std::endl;
         std::cin >> cod;
-        for (vector<Livro>::iterator it = _catalogo.livrosEstoque.begin();
+        for (std::vector<Livro>::iterator it = _catalogo.livrosEstoque.begin();
              it != _catalogo.livrosEstoque.end(); it++)
         {
             if (it->getCodigoLivro() == cod)
@@ -121,7 +121,7 @@ void Cliente::finalizarCompra()
     {
         this->livrosVendidos.livrosEstoque.push_back(this->pedidos._livrosSalvos[i]);
         this->pedidos.removerLivro(this->pedidos._livrosSalvos[i].getCodigoLivro());
-        for (vector<Livro>::iterator it = _catalogo.livrosEstoque.begin();
+        for (std::vector<Livro>::iterator it = _catalogo.livrosEstoque.begin();
              it != _catalogo.livrosEstoque.end(); it++)
         {
             it->setQuantidadeLivro(it->getQuantidadeLivro() - 1);

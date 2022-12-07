@@ -12,8 +12,8 @@ class Catalogo : public Livro
 public:
     std::vector<Livro> livrosEstoque;
     void imprimirLivrosEstoque();
-    void filtroCategoria(string categoriaBuscada);
-    void filtroTitulo(string tituloBuscado);
+    void filtroCategoria(std::string categoriaBuscada);
+    void filtroTitulo(std::string tituloBuscado);
     void filtroCodigo(int codigoBuscado);
 };
 

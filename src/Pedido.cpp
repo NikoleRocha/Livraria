@@ -15,7 +15,8 @@ void Pedido::adicionarLivro(Livro &livro)
 }
 
 /**
- * @brief Calcula o valor total da compra, sendo a soma do preço de venda todos os livros adicionados ao pedido
+ * @brief Calcula o valor total da compra, sendo a soma do preço de venda todos os livros adicionados ao pedido, caso não tenha
+ * nenhum livro adicionado ao pedido lança exceção
  * 
  * @return float Retorna o valor total da compra
  */
@@ -36,7 +37,8 @@ float Pedido::calcularValorCompra()
 }
 
 /**
- * @brief Calcula o valor de lucro que o administrador terá sobre a venda
+ * @brief Calcula o valor de lucro que o administrador terá sobre a venda, e lança execeção caso nenhum livro tenha sido 
+ * adicionado ao pedido
  * 
  * @return float Retorna o valor de lucro da compra
  */
@@ -59,7 +61,8 @@ float Pedido::calcularLucroCompra()
 }
 
 /**
- * @brief Exibe todas as informações acerca do pedido a ser finalizado
+ * @brief Exibe todas as informações acerca do pedido a ser finalizado e lança exceção caso não haja nenhum livro adicionado
+ * no pedido
  *
  * @param pedido Pedido do cliente que vai ser finalizado
  */

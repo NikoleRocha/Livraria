@@ -1,7 +1,19 @@
 #include "Livro.hpp"
 #include "ExcecoesLivro.hpp"
 
-Livro::Livro(string _tituloLivro, string _autorLivro, string _generoLivro, float _precoVenda, int _codigoLivro, int _quantidadeLivro, float _precoCusto)
+/**
+ * @brief Construtor do objeto Livro. Lança exceções caso um valor inválido seja inserido
+ *
+ * @param _tituloLivro Titulo a ser atribuido ao livro
+ * @param _autorLivro Autor do livro
+ * @param _generoLivro Gênero/categoria do livro
+ * @param _precoVenda Preço o qual vai ser vendido
+ * @param _codigoLivro Código atribuído ao livro
+ * @param _quantidadeLivro Quantido de livros disponíveis para venda
+ * @param _precoCusto Preço de custo do livro
+ */
+
+Livro::Livro(std::string _tituloLivro, std::string _autorLivro, std::string _generoLivro, float _precoVenda, int _codigoLivro, int _quantidadeLivro, float _precoCusto)
 {
     this->tituloLivro = _tituloLivro;
     this->autorLivro = _autorLivro;
@@ -52,34 +64,57 @@ Livro::Livro()
     this->precoCusto = 0;
 }
 
+/**
+ * @brief Printa as informações referentes ao livro
+ *
+ */
+
 void Livro::exibirLivro()
 {
-    cout << "Título: " << tituloLivro << endl;
-    cout << "Autor: " << autorLivro << endl;
-    cout << "Gênero: " << generoLivro << endl;
-    cout << "Preço: R$" << precoVenda << endl;
-    cout << "Código: " << codigoLivro << endl;
-    cout << "Quantidade disponível: " << quantidadeLivro << endl;
+    std::cout << "Título: " << tituloLivro << std::endl;
+    std::cout << "Autor: " << autorLivro << std::endl;
+    std::cout << "Gênero: " << generoLivro << std::endl;
+    std::cout << "Preço: R$" << precoVenda << std::endl;
+    std::cout << "Código: " << codigoLivro << std::endl;
+    std::cout << "Quantidade disponível: " << quantidadeLivro << std::endl;
 }
 
-void Livro::buscarInformacoesLivro(string _tituloLivro)
+/**
+ * @brief Exibe o preço e aquantidade de um livro procurado através de seu título, caso ele exista
+ *
+ * @param _tituloLivro Titulo do livro o qual se busca as informações
+ */
+
+void Livro::buscarInformacoesLivro(std::string _tituloLivro)
 {
     if (this->tituloLivro == _tituloLivro)
     {
-        cout << "Preço: R$" << precoVenda << endl;
-        cout << "Quantidade disponível: " << quantidadeLivro << endl;
+        std::cout << "Preço: R$" << precoVenda << std::endl;
+        std::cout << "Quantidade disponível: " << quantidadeLivro << std::endl;
     }
     else
     {
-        cout << "Livro Indisponível no momento" << endl;
+        std::cout << "Livro Indisponível no momento" << std::endl;
     }
 }
 
-void Livro::filtroCategoria(string _categoria)
+/**
+ * @brief Exibe as informações de livros petencentes a categoria buscada
+ *
+ * @param _categoria Categoria do livro 
+ */
+
+void Livro::filtroCategoria(std::string _categoria)
 {
     if (this->generoLivro == _categoria)
         this->exibirLivro();
 }
+
+/**
+ * @brief Exibe as informações de um livro procurado através de seu código, caso ele conste no catálogo
+ *
+ * @param _codigo Código do livro o qual se busca as informações
+ */
 
 void Livro::filtroCodigo(int _codigo)
 {
@@ -87,11 +122,23 @@ void Livro::filtroCodigo(int _codigo)
         this->exibirLivro();
 }
 
-void Livro::filtroTitulo(string _titulo)
+/**
+ * @brief Exibe as informações de um livro procurado através de seu título, caso ele exista
+ *
+ * @param _tituloLivro Titulo do livro o qual se busca as informações
+ */
+
+void Livro::filtroTitulo(std::string _titulo)
 {
     if (this->tituloLivro == _titulo)
         this->exibirLivro();
 }
+
+/**
+ * @brief Get responsável pelo preço de venda do livro
+ * 
+ * @return double Retorna o preço de venda do livro
+ */
 
 double Livro::getPrecoVenda()
 {
@@ -99,23 +146,56 @@ double Livro::getPrecoVenda()
     return precoVenda;
 }
 
-string Livro::getTituloLivro()
+/**
+ * @brief Get responsável pelo titulo do livro
+ * 
+ * @return std::string Retorna o titulo do livro
+ */
+
+std::string Livro::getTituloLivro()
 {
     return this->tituloLivro;
 }
+
+/**
+ * @brief Get responsável pelo codigo do livro
+ * 
+ * @return int Retorna o codigo do livro
+ */
 
 int Livro::getCodigoLivro()
 {
     return this->codigoLivro;
 }
+
+/**
+ * @brief Get responsável pela quantidade de livros disponiveis
+ * 
+ * @return int Retorna a quantidade de livros disponíveis
+ */
+
 int Livro::getQuantidadeLivro()
 {
     return this->quantidadeLivro;
 }
+
+/**
+ * @brief Set responsável pela quantidade de livros disponiveis
+ * 
+ * @param _quantidade Quantidade de livros que vai ser disponibilizada
+ */
+
 void Livro::setQuantidadeLivro(int _quantidade)
 {
     this->quantidadeLivro = _quantidade;
 }
+
+/**
+ * @brief Get responsável pelo preço de custo do livro
+ * 
+ * @return double Retorna o preço de custo do livro
+ */
+
 double Livro::getPrecoCusto()
 {
     return this->precoCusto;

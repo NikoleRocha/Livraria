@@ -13,7 +13,8 @@
  * @param _precoCusto Preço de custo do livro
  */
 
-Livro::Livro(std::string _tituloLivro, std::string _autorLivro, std::string _generoLivro, float _precoVenda, int _codigoLivro, int _quantidadeLivro, float _precoCusto)
+Livro::Livro(std::string _tituloLivro, std::string _autorLivro, std::string _generoLivro, float _precoVenda,
+             int _codigoLivro, int _quantidadeLivro, float _precoCusto)
 {
     this->tituloLivro = _tituloLivro;
     this->autorLivro = _autorLivro;
@@ -101,7 +102,7 @@ void Livro::buscarInformacoesLivro(std::string _tituloLivro)
 /**
  * @brief Exibe as informações de livros petencentes a categoria buscada
  *
- * @param _categoria Categoria do livro 
+ * @param _categoria Categoria do livro
  */
 
 void Livro::filtroCategoria(std::string _categoria)
@@ -136,7 +137,7 @@ void Livro::filtroTitulo(std::string _titulo)
 
 /**
  * @brief Get responsável pelo preço de venda do livro
- * 
+ *
  * @return double Retorna o preço de venda do livro
  */
 
@@ -148,7 +149,7 @@ double Livro::getPrecoVenda()
 
 /**
  * @brief Get responsável pelo titulo do livro
- * 
+ *
  * @return std::string Retorna o titulo do livro
  */
 
@@ -159,7 +160,7 @@ std::string Livro::getTituloLivro()
 
 /**
  * @brief Get responsável pelo codigo do livro
- * 
+ *
  * @return int Retorna o codigo do livro
  */
 
@@ -170,7 +171,7 @@ int Livro::getCodigoLivro()
 
 /**
  * @brief Get responsável pela quantidade de livros disponiveis
- * 
+ *
  * @return int Retorna a quantidade de livros disponíveis
  */
 
@@ -181,7 +182,7 @@ int Livro::getQuantidadeLivro()
 
 /**
  * @brief Set responsável pela quantidade de livros disponiveis
- * 
+ *
  * @param _quantidade Quantidade de livros que vai ser disponibilizada
  */
 
@@ -192,7 +193,7 @@ void Livro::setQuantidadeLivro(int _quantidade)
 
 /**
  * @brief Get responsável pelo preço de custo do livro
- * 
+ *
  * @return double Retorna o preço de custo do livro
  */
 

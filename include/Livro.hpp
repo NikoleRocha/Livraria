@@ -15,7 +15,8 @@ protected:
     double precoVenda;
 
 public:
-    Livro(std::string _tituloLivro, std::string _autorLivro, std::string _generoLivro, float _precoVenda, int _codigoLivro, int _quantidadeLivro, float _precoCusto);
+    Livro(std::string _tituloLivro, std::string _autorLivro, std::string _generoLivro, float _precoVenda,
+          int _codigoLivro, int _quantidadeLivro, float _precoCusto);
     Livro();
     void exibirLivro();
     void buscarInformacoesLivro(std::string _tituloLivro);

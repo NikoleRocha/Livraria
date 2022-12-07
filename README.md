@@ -93,6 +93,7 @@ Um dos principais objetivos desse trabalho é desenvolver além de um sistema fu
   * **Alta coesão e Baixo Acoplamento:** Durante o desenvolvimento do código, visamos produzir um sistema com alta coesão, ou seja, classes em que seus membros são fortemente ligados e buscam um objetivo comum, e também um baixo acoplamento, ou seja, classes com baixa dependência entre si. Classes coesas e pouco acopladas facilitam a manutenção e evitam os efeitos colaterais.
   * **Composição:** A composição é uma relação entre classes que pode ser descrita como **tem um**, por exemplo, uma sala **tem um** horário, ou aluno **tem uma** nota. Essa forma de organização permite o agrupamento lógico de classes.
   * **Herança:** A herança permite que classes compartilhem atributos e métodos, através de "heranças". Ela é usada na intenção de reaproveitar código ou comportamento generalizado ou especializar operações ou atributos.
+  * **Sobrecarga:** Sobrecarga de método permite a existência de vários métodos de mesmo nome, contanto que tenham assinaturas levemente diferentes, ou seja, variando em número, tipo de argumentos, valor de retorno e até variáveis diferentes.
 <!--te-->
 
 

@@ -1,13 +1,43 @@
 #include "Administrador.hpp"
+
+/**
+ *
+ * @brief Contrutor de um objeto do tipo Administrador
+ *
+ * @param _nome Nome completo do usuário
+ * @param _cpf CPF do usuário
+ * @param _login Login utilizado pelo usuário para acessar sua conta
+ * @param _telefone Telefone disponibilizado pelo usuário para contato
+ * @param _senha Senha de acesso utlizada pelo usuário para fazer login
+ */
+
 Administrador::Administrador(std::string _nome, std::string _cpf, std::string _login, std::string _telefone,
                              std::string _senha) : Usuario(_nome, _cpf, _login, _telefone, _senha) {}
 
+/**
+ *
+ * @brief Construtor padrão de um objeto do tipo Administrador, carazteriza as informações como indefinidas
+ */
+
 Administrador::Administrador() : Usuario() {}
+
+/**
+ *
+ * @brief Adiciona um livro existente ao catálogo
+ *
+ * @param livro Livro a ser adicionado ao catálogo
+ */
 
 void Administrador::adicionarLivroCatalogo(Livro &livro)
 {
     this->_catalogo.livrosEstoque.push_back(livro);
 }
+
+/**
+ *
+ * @brief Cria um novo objeto do tipo Livro e o adiciona ao catálogo
+ */
+
 void Administrador::adicionarLivroCatalogo()
 {
     std::string _titulo;
@@ -36,6 +66,12 @@ void Administrador::adicionarLivroCatalogo()
     _livro = Livro(_titulo, _autor, _genero, _valorVenda, _codigo, _quantidade, _custo);
     this->_catalogo.livrosEstoque.push_back(_livro);
 }
+
+/**
+ *
+ * @brief Remove um livro do catálogo pelo código
+ */
+
 void Administrador::removerLivroCatalogo()
 {
     int _cod;
@@ -58,10 +94,22 @@ void Administrador::removerLivroCatalogo()
         }
     }
 }
+
+/**
+ *
+ * @brief Exibe o catálogo completo disponível
+ */
+
 void Administrador::exibirCatalogo()
 {
     this->_catalogo.imprimirLivrosEstoque();
 }
+
+/**
+ *
+ * @brief Imprime um relatório completo da loja, contendo o saldo total e lucro da loja, além de informações sobre as vendas e clientes
+ */
+
 void Administrador::relatorioCompleto()
 {
     if (this->numeroClientes == 1)
@@ -72,7 +120,7 @@ void Administrador::relatorioCompleto()
         std::cout << "Foram cadastrados " << this->numeroClientes << " clientes desde a última verificação" << std::endl;
     this->numeroClientes = 0;
     if (numeroCompras == 0)
-        std::cout << "Não foram realizadas compras desde a últimas verificação" << std::endl;
+        std::cout << "Não foram realizadas compras desde a última verificação" << std::endl;
     if (numeroCompras == 1)
         std::cout << "Foi realizada " << this->numeroCompras << " compra desde a últimas verificação" << std::endl;
     else
@@ -83,8 +131,17 @@ void Administrador::relatorioCompleto()
     if (livrosVendidos.livrosEstoque.empty())
         std::cout << "Nenhum livro foi vendido desde a última verificação" << std::endl;
     else
+    {
+        std::cout << "Os seguintes livros foram vendidos desde a abertura da loja: " << std::endl;
         this->livrosVendidos.imprimirLivrosEstoque();
+    }
 }
+
+/**
+ *
+ * @brief Cadastra um cliente, criando um novo objeto do tipo cliente e o adicionando a um vetor de clientes
+ */
+
 void Administrador::cadastrarCliente()
 {
     std::string nomeCliente;
@@ -123,6 +180,13 @@ void Administrador::cadastrarCliente()
     this->clientes.push_back(Cliente(nomeCliente, cpfCliente, loginCliente, telefoneCliente, senhaCliente, logradouroCliente, cepCliente, bairroCliente, cidadeCliente, estadoCliente));
     std::cout << "Cliente cadastrado com sucesso" << std::endl;
 }
+
+/**
+ * @brief Faz o login de um cliente usando suas credênciais, percorrendo o vetor clientes de clientes cadastrados
+ *
+ * @return Cliente Retorna um objeto do tipo Cliente, caso esteja cadastrado, retorna o cliente cadastrado, caso contrário, retorna um cliente indefinido
+ */
+
 Cliente Administrador::loginCliente()
 {
     std::string login;

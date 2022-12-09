@@ -1,5 +1,21 @@
 #include "Cliente.hpp"
 
+/**
+ *
+ * @brief Construtor de um objeto de tipo Cliente e contador do número de clientes cadastrados
+ *
+ * @param _nome Nome completo do usuário
+ * @param _cpf CPF do usuário
+ * @param _login Login utilizado pelo usuário para acessar sua conta
+ * @param _telefone Telefone disponibilizado pelo usuário para contato
+ * @param _senha Senha de acesso utlizada pelo usuário para fazer login
+ * @param _logradouro Logradouro do Endereço de entrega do Cliente
+ * @param _cep CEP do Endereço de entrega do Cliente
+ * @param _bairro Bairro do Endereço de entrega do Cliente
+ * @param _cidade Cidade do Endereço de entrega do Cliente
+ * @param _estado Estado do Endereço de entrega do Cliente
+ */
+
 Cliente::Cliente(std::string _nome, std::string _cpf, std::string _login, std::string _telefone,
                  std::string _senha, std::string _logradouro, std::string _cep, std::string _bairro,
                  std::string _cidade, std::string _estado) : Usuario(_nome, _cpf, _login, _telefone, _senha)
@@ -8,12 +24,24 @@ Cliente::Cliente(std::string _nome, std::string _cpf, std::string _login, std::s
     this->numeroClientes++;
     this->pedidos = Pedido();
 }
+
+/**
+ *
+ * @brief Construtor padrão de um objeto do tipo Cliente e contador do número de clientes cadastrados, caracteriza as informações como indefinidas
+ */
+
 Cliente::Cliente() : Usuario()
 {
     this->endereco = Endereco();
     this->numeroClientes++;
     this->pedidos = Pedido();
 }
+
+/**
+ *
+ * @brief Altera os dados escolhidos pelo cliente
+ */
+
 void Cliente::alterarDados()
 {
     std::string dado;
@@ -49,6 +77,12 @@ void Cliente::alterarDados()
         Cliente::setSenha(novaSenha);
     }
 }
+
+/**
+ *
+ * @brief Adiciona um ou mais livros ao carrinho do Cliente
+ */
+
 void Cliente::adicionarPedido()
 {
     std::string comando = "y";
@@ -57,7 +91,7 @@ void Cliente::adicionarPedido()
     {
         std::cout << "Digite o código do livro a ser adicionado no carrinho: " << std::endl;
         std::cin >> cod;
-        for (std::vector<Livro>::iterator it = _catalogo.livrosEstoque.begin();
+        for (vector<Livro>::iterator it = _catalogo.livrosEstoque.begin();
              it != _catalogo.livrosEstoque.end(); it++)
         {
             if (it->getCodigoLivro() == cod)
@@ -80,6 +114,12 @@ void Cliente::adicionarPedido()
         }
     }
 }
+
+/**
+ *
+ * @brief Remove um ou mais livros do carrinho do Cliente
+ */
+
 void Cliente::retirarPedido()
 {
     std::string comando = "y";
@@ -104,10 +144,22 @@ void Cliente::retirarPedido()
         }
     }
 }
+
+/**
+ *
+ * @brief Exibe os livros presentes no carrinho do Cliente, é lançada uma exceção caso esteja vazio
+ */
+
 void Cliente::exibirCarrinho()
 {
     this->pedidos.gerarBoleto(&this->pedidos);
 }
+
+/**
+ *
+ * @brief Finaliza a compra do cliente, diminuindo a quantidade disponível dos livros comprados e imprimindo os detalhes da compra
+ */
+
 void Cliente::finalizarCompra()
 {
     Saldo += this->pedidos.calcularValorCompra();
@@ -121,13 +173,19 @@ void Cliente::finalizarCompra()
     {
         this->livrosVendidos.livrosEstoque.push_back(this->pedidos._livrosSalvos[i]);
         this->pedidos.removerLivro(this->pedidos._livrosSalvos[i].getCodigoLivro());
-        for (std::vector<Livro>::iterator it = _catalogo.livrosEstoque.begin();
+        for (vector<Livro>::iterator it = _catalogo.livrosEstoque.begin();
              it != _catalogo.livrosEstoque.end(); it++)
         {
             it->setQuantidadeLivro(it->getQuantidadeLivro() - 1);
         }
     }
 }
+
+/**
+ *
+ * @brief Filtra o catálogo com base no título escolhido
+ */
+
 void Cliente::filtrarTitulo()
 {
     std::string titulo;
@@ -136,6 +194,12 @@ void Cliente::filtrarTitulo()
     std::getline(std::cin, titulo);
     this->_catalogo.filtroTitulo(titulo);
 }
+
+/**
+ *
+ * @brief Filtra o catálogo com base no código do livro escolhido
+ */
+
 void Cliente::filtrarCodigo()
 {
     int codigo;
@@ -143,6 +207,12 @@ void Cliente::filtrarCodigo()
     std::cin >> codigo;
     this->_catalogo.filtroCodigo(codigo);
 }
+
+/**
+ *
+ * @brief Filtra o catálogo com base na categoria escolhido
+ */
+
 void Cliente::filtrarCategoria()
 {
     std::string categoria;
